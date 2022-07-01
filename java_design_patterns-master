@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system>
+	<pattern name="Factory Method">
+		<instance>
+			<role name="Creator" element="me.zbl.abstractFactory.TeamFactory" />
+			<role name="FactoryMethod()" element="me.zbl.abstractFactory.TeamFactory::createShip():me.zbl.abstractFactory.Ship" />
+			<role name="FactoryMethod()" element="me.zbl.abstractFactory.TeamFactory::createCaptain():me.zbl.abstractFactory.Captain" />
+			<role name="FactoryMethod()" element="me.zbl.abstractFactory.TeamFactory::createSailor():me.zbl.abstractFactory.Sailor" />
+		</instance>
+		<instance>
+			<role name="Creator" element="me.zbl.factory.method.Cook" />
+			<role name="FactoryMethod()" element="me.zbl.factory.method.Cook::cookFood(me.zbl.factory.method.FoodType):me.zbl.factory.method.Food" />
+		</instance>
+	</pattern>
+	<pattern name="Prototype">
+		<instance>
+			<role name="Client" element="me.zbl.prototype.TeamFactoryImpl" />
+			<role name="Prototype" element="me.zbl.prototype.Driver" />
+			<role name="prototype" element="me.zbl.prototype.TeamFactoryImpl::driver:me.zbl.prototype.Driver" />
+			<role name="Operation()" element="me.zbl.prototype.TeamFactoryImpl::createDriver():me.zbl.prototype.Driver" />
+		</instance>
+		<instance>
+			<role name="Client" element="me.zbl.prototype.TeamFactoryImpl" />
+			<role name="Prototype" element="me.zbl.prototype.Passenger" />
+			<role name="prototype" element="me.zbl.prototype.TeamFactoryImpl::passenger:me.zbl.prototype.Passenger" />
+			<role name="Operation()" element="me.zbl.prototype.TeamFactoryImpl::createPassenger():me.zbl.prototype.Passenger" />
+		</instance>
+		<instance>
+			<role name="Client" element="me.zbl.prototype.TeamFactoryImpl" />
+			<role name="Prototype" element="me.zbl.prototype.Vehicle" />
+			<role name="prototype" element="me.zbl.prototype.TeamFactoryImpl::vehicle:me.zbl.prototype.Vehicle" />
+			<role name="Operation()" element="me.zbl.prototype.TeamFactoryImpl::createVehicle():me.zbl.prototype.Vehicle" />
+		</instance>
+	</pattern>
+	<pattern name="Singleton">
+		<instance>
+			<role name="Singleton" element="me.zbl.singleton.Director" />
+			<role name="uniqueInstance" element="me.zbl.singleton.Director::INSTANCE:me.zbl.singleton.Director" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="me.zbl.singleton.EnumDirector" />
+			<role name="uniqueInstance" element="me.zbl.singleton.EnumDirector::INSTANCE:me.zbl.singleton.EnumDirector" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="me.zbl.singleton.ThreadSafeDoubleCheckLocking" />
+			<role name="uniqueInstance" element="me.zbl.singleton.ThreadSafeDoubleCheckLocking::INSTANCE:me.zbl.singleton.ThreadSafeDoubleCheckLocking" />
+		</instance>
+		<instance>
+			<role name="Singleton" element="me.zbl.singleton.ThreadSafeLazyLoadDirector" />
+			<role name="uniqueInstance" element="me.zbl.singleton.ThreadSafeLazyLoadDirector::INSTANCE:me.zbl.singleton.ThreadSafeLazyLoadDirector" />
+		</instance>
+	</pattern>
+	<pattern name="(Object)Adapter">
+		<instance>
+			<role name="Adaptee" element="me.zbl.adapter.Bus" />
+			<role name="Adapter" element="me.zbl.adapter.BusAdapter" />
+			<role name="adaptee" element="me.zbl.adapter.BusAdapter::bus:me.zbl.adapter.Bus" />
+			<role name="Request()" element="me.zbl.adapter.BusAdapter::drive():void" />
+		</instance>
+		<instance>
+			<role name="Adapter" element="BookShelfIterator" />
+			<role name="Adaptee" element="BookShelf" />
+			<role name="adaptee" element="BookShelfIterator::shelf:BookShelf" />
+			<role name="Request()" element="BookShelfIterator::next():Item" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="me.zbl.prototype.Driver" />
+			<role name="Adapter" element="me.zbl.prototype.TeamFactoryImpl" />
+			<role name="adaptee" element="me.zbl.prototype.TeamFactoryImpl::driver:me.zbl.prototype.Driver" />
+			<role name="Request()" element="me.zbl.prototype.TeamFactoryImpl::createDriver():me.zbl.prototype.Driver" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="me.zbl.prototype.Passenger" />
+			<role name="Adapter" element="me.zbl.prototype.TeamFactoryImpl" />
+			<role name="adaptee" element="me.zbl.prototype.TeamFactoryImpl::passenger:me.zbl.prototype.Passenger" />
+			<role name="Request()" element="me.zbl.prototype.TeamFactoryImpl::createPassenger():me.zbl.prototype.Passenger" />
+		</instance>
+		<instance>
+			<role name="Adaptee" element="me.zbl.prototype.Vehicle" />
+			<role name="Adapter" element="me.zbl.prototype.TeamFactoryImpl" />
+			<role name="adaptee" element="me.zbl.prototype.TeamFactoryImpl::vehicle:me.zbl.prototype.Vehicle" />
+			<role name="Request()" element="me.zbl.prototype.TeamFactoryImpl::createVehicle():me.zbl.prototype.Vehicle" />
+		</instance>
+	</pattern>
+	<pattern name="Command">
+		<instance>
+			<role name="Receiver" element="me.zbl.command.AbstractFont" />
+			<role name="ConcreteCommand" element="me.zbl.command.Enlarge" />
+			<role name="receiver" element="me.zbl.command.Enlarge::font:me.zbl.command.AbstractFont" />
+			<role name="Execute()" element="me.zbl.command.Enlarge::execute():void" />
+			<role name="Execute()" element="me.zbl.command.Enlarge::undo():void" />
+		</instance>
+		<instance>
+			<role name="Receiver" element="me.zbl.command.AbstractFont" />
+			<role name="ConcreteCommand" element="me.zbl.command.Rubify" />
+			<role name="receiver" element="me.zbl.command.Rubify::font:me.zbl.command.AbstractFont" />
+			<role name="Execute()" element="me.zbl.command.Rubify::execute():void" />
+			<role name="Execute()" element="me.zbl.command.Rubify::undo():void" />
+		</instance>
+	</pattern>
+	<pattern name="Composite" />
+	<pattern name="Decorator">
+		<instance>
+			<role name="Component" element="me.zbl.interpreter.Expression" />
+			<role name="Decorator" element="me.zbl.interpreter.DivisionExpression" />
+			<role name="component" element="me.zbl.interpreter.DivisionExpression::expressionLeft:me.zbl.interpreter.Expression" />
+			<role name="component" element="me.zbl.interpreter.DivisionExpression::expressionRight:me.zbl.interpreter.Expression" />
+			<role name="Operation()" element="me.zbl.interpreter.DivisionExpression::interpret():int" />
+		</instance>
+		<instance>
+			<role name="Component" element="me.zbl.interpreter.Expression" />
+			<role name="Decorator" element="me.zbl.interpreter.MinusExpression" />
+			<role name="component" element="me.zbl.interpreter.MinusExpression::expressionLeft:me.zbl.interpreter.Expression" />
+			<role name="component" element="me.zbl.interpreter.MinusExpression::expressionRight:me.zbl.interpreter.Expression" />
+			<role name="Operation()" element="me.zbl.interpreter.MinusExpression::interpret():int" />
+		</instance>
+		<instance>
+			<role name="Component" element="me.zbl.interpreter.Expression" />
+			<role name="Decorator" element="me.zbl.interpreter.MultipleExpression" />
+			<role name="component" element="me.zbl.interpreter.MultipleExpression::expressionLeft:me.zbl.interpreter.Expression" />
+			<role name="component" element="me.zbl.interpreter.MultipleExpression::expressionRight:me.zbl.interpreter.Expression" />
+			<role name="Operation()" element="me.zbl.interpreter.MultipleExpression::interpret():int" />
+		</instance>
+		<instance>
+			<role name="Component" element="me.zbl.interpreter.Expression" />
+			<role name="Decorator" element="me.zbl.interpreter.PlusExpression" />
+			<role name="component" element="me.zbl.interpreter.PlusExpression::expressionLeft:me.zbl.interpreter.Expression" />
+			<role name="component" element="me.zbl.interpreter.PlusExpression::expressionRight:me.zbl.interpreter.Expression" />
+			<role name="Operation()" element="me.zbl.interpreter.PlusExpression::interpret():int" />
+		</instance>
+		<instance>
+			<role name="Component" element="me.zbl.adapter.Car" />
+			<role name="Decorator" element="me.zbl.adapter.Driver" />
+			<role name="component" element="me.zbl.adapter.Driver::car:me.zbl.adapter.Car" />
+			<role name="Operation()" element="me.zbl.adapter.Driver::drive():void" />
+		</instance>
+		<instance>
+			<role name="Component" element="me.zbl.proxy.Room" />
+			<role name="Decorator" element="me.zbl.proxy.DiningRoomProxy" />
+			<role name="component" element="me.zbl.proxy.DiningRoomProxy::room:me.zbl.proxy.Room" />
+			<role name="Operation()" element="me.zbl.proxy.DiningRoomProxy::enter(me.zbl.proxy.Customer):void" />
+		</instance>
+	</pattern>
+	<pattern name="Observer">
+		<instance>
+			<role name="Observer" element="me.zbl.observer.TimeObserver" />
+			<role name="Subject" element="me.zbl.observer.Time" />
+			<role name="Notify()" element="me.zbl.observer.Time::notifyObservers():void" />
+		</instance>
+	</pattern>
+	<pattern name="State">
+		<instance>
+			<role name="Context" element="me.zbl.state.Coder" />
+			<role name="State" element="me.zbl.state.State" />
+			<role name="state" element="me.zbl.state.Coder::state:me.zbl.state.State" />
+			<role name="Request()" element="me.zbl.state.Coder::changeStateTo(me.zbl.state.State):void" />
+			<role name="Request()" element="me.zbl.state.Coder::prepare():void" />
+		</instance>
+		<instance>
+			<role name="Context" element="me.zbl.prototype.TeamFactoryImpl" />
+			<role name="State" element="me.zbl.prototype.Driver" />
+			<role name="state" element="me.zbl.prototype.TeamFactoryImpl::driver:me.zbl.prototype.Driver" />
+			<role name="Request()" element="me.zbl.prototype.TeamFactoryImpl::createDriver():me.zbl.prototype.Driver" />
+		</instance>
+		<instance>
+			<role name="Context" element="me.zbl.prototype.TeamFactoryImpl" />
+			<role name="State" element="me.zbl.prototype.Passenger" />
+			<role name="state" element="me.zbl.prototype.TeamFactoryImpl::passenger:me.zbl.prototype.Passenger" />
+			<role name="Request()" element="me.zbl.prototype.TeamFactoryImpl::createPassenger():me.zbl.prototype.Passenger" />
+		</instance>
+		<instance>
+			<role name="Context" element="me.zbl.prototype.TeamFactoryImpl" />
+			<role name="State" element="me.zbl.prototype.Vehicle" />
+			<role name="state" element="me.zbl.prototype.TeamFactoryImpl::vehicle:me.zbl.prototype.Vehicle" />
+			<role name="Request()" element="me.zbl.prototype.TeamFactoryImpl::createVehicle():me.zbl.prototype.Vehicle" />
+		</instance>
+	</pattern>
+	<pattern name="Strategy">
+		<instance>
+			<role name="Context" element="me.zbl.strategy.BusinessMan" />
+			<role name="Strategy" element="me.zbl.strategy.TransportationStrategy" />
+			<role name="strategy" element="me.zbl.strategy.BusinessMan::strategy:me.zbl.strategy.TransportationStrategy" />
+			<role name="ContextInterface()" element="me.zbl.strategy.BusinessMan::transport():void" />
+		</instance>
+	</pattern>
+	<pattern name="Bridge" />
+	<pattern name="Template Method">
+		<instance>
+			<role name="AbstractClass" element="me.zbl.prototype.Driver" />
+			<role name="TemplateMethod()" element="me.zbl.prototype.Driver::clone():me.zbl.prototype.Prototype" />
+			<role name="TemplateMethod()" element="me.zbl.prototype.Driver::clone():java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="me.zbl.prototype.Passenger" />
+			<role name="TemplateMethod()" element="me.zbl.prototype.Passenger::clone():me.zbl.prototype.Prototype" />
+			<role name="TemplateMethod()" element="me.zbl.prototype.Passenger::clone():java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="me.zbl.prototype.Prototype" />
+			<role name="TemplateMethod()" element="me.zbl.prototype.Prototype::clone():java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="me.zbl.prototype.Vehicle" />
+			<role name="TemplateMethod()" element="me.zbl.prototype.Vehicle::clone():me.zbl.prototype.Prototype" />
+			<role name="TemplateMethod()" element="me.zbl.prototype.Vehicle::clone():java.lang.Object" />
+		</instance>
+		<instance>
+			<role name="AbstractClass" element="me.zbl.template.method.LearningMethod" />
+			<role name="TemplateMethod()" element="me.zbl.template.method.LearningMethod::learn(java.lang.String, java.lang.String):void" />
+		</instance>
+	</pattern>
+	<pattern name="Visitor">
+		<instance>
+			<role name="ConcreteElement" element="me.zbl.visitor.Boss" />
+			<role name="Visitor" element="me.zbl.visitor.UnitVisitor" />
+			<role name="Accept()" element="me.zbl.visitor.Boss::beVisited(me.zbl.visitor.UnitVisitor):void" />
+		</instance>
+		<instance>
+			<role name="ConcreteElement" element="me.zbl.visitor.Engineer" />
+			<role name="Visitor" element="me.zbl.visitor.UnitVisitor" />
+			<role name="Accept()" element="me.zbl.visitor.Engineer::beVisited(me.zbl.visitor.UnitVisitor):void" />
+		</instance>
+		<instance>
+			<role name="ConcreteElement" element="me.zbl.visitor.Manager" />
+			<role name="Visitor" element="me.zbl.visitor.UnitVisitor" />
+			<role name="Accept()" element="me.zbl.visitor.Manager::beVisited(me.zbl.visitor.UnitVisitor):void" />
+		</instance>
+	</pattern>
+	<pattern name="Proxy" />
+	<pattern name="Proxy2" />
+	<pattern name="Chain of Responsibility">
+		<instance>
+			<role name="Handler" element="me.zbl.chain.RequestHandler" />
+			<role name="successor" element="me.zbl.chain.RequestHandler::next:me.zbl.chain.RequestHandler" />
+		</instance>
+	</pattern>
+</system>
+
